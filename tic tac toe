@@ -1,0 +1,142 @@
+# Game
+games using python
+import time
+import pyttsx3
+s = pyttsx3.init()
+print("                                          Welcome to Tic Tac Toe game")
+time.sleep(1.5)
+print("                                                                                                      Made by one of the ALCODERS")
+time.sleep(2)
+data = [['1','2','3'],['4','5','6'],['7','8','9']]
+for i in range(3):
+    print("_"*18)
+    for j in range(3):
+        print("| ",data[i][j],end=' ')
+    print("|")
+print("_"*18)
+s.say("Enter name of player 1")
+s.runAndWait()
+p1 = input("Enter Name player 1: ")
+s.say("Enter name of player 2")
+s.runAndWait()
+p2 = input("Enter Name Player 2: ")
+
+turn = 1
+while True:
+    if turn % 2 == 1:
+        s.say(p1 + "'s Turn")
+        s.runAndWait()
+        print(p1 + "'s Turn")
+        s.say("Enter the position to place X")
+        s.runAndWait()
+        pos = input("Enter the position to place X : ")
+
+        for i in range(3):
+            for j in range(3):
+                if data[i][j] == pos:
+                    data[i][j] = 'X'
+    else:
+        s.say(p2 + "'s Turn")
+        s.runAndWait()
+        print(p2 + "'s Turn")
+        s.say("Enter the position to place O")
+        s.runAndWait()
+        pos = input("Enter the position to place O : ")
+
+        for i in range(3):
+            for j in range(3):
+                if data[i][j] == pos:
+                    data[i][j] = 'O'
+    turn += 1
+
+    time.sleep(1.5)
+    for i in range(3):
+        print("_"*18)
+        for j in range(3):
+            print("| ", data[i][j], end=' ')
+        print("|")
+    print("_"*18)
+    time.sleep(2)
+    if data[0][0] == data[0][1] == data[0][2]:
+        if data[0][0] == "X":
+            print("Player 1 ",p1," WINS !!!")
+            s.say("Player 1 "+ p1 + " WINS !!!")
+            s.runAndWait()
+        else:
+            print("Player 2 0",p2, " WINS !!!")
+            s.say("Player 2 0"+ p2 + " WINS !!!")
+            s.runAndWait()
+        break
+    elif data[1][0] == data[1][1] == data[1][2]:
+        if data[1][0] == "X":
+            print("Player 1 ",p1," WINS !!!")
+            s.say("Player 1 " + p1 + " WINS !!!")
+            s.runAndWait()
+        else:
+            print("Player 2 ",p2, " WINS !!!")
+            s.say("Player 2 0" + p2 + " WINS !!!")
+            s.runAndWait()
+        break
+    elif data[2][0] == data[2][1] == data[2][2]:
+        if data[2][0] == "X":
+            print("Player 1 ",p1," WINS !!!")
+            s.say("Player 1 " + p1 + " WINS !!!")
+            s.runAndWait()
+        else:
+            print("Player 2 ",p2, " WINS !!!")
+            s.say("Player 2 0" + p2 + " WINS !!!")
+            s.runAndWait()
+        break
+    elif data[0][0] == data[1][0] == data[2][0]:
+        if data[2][0] == "X":
+            print("Player 1 ",p1," WINS!!!")
+            s.say("Player 1 " + p1 + " WINS !!!")
+            s.runAndWait()
+        else:
+            print("Player 2 ",p2, " WINS!!!")
+            s.say("Player 2 0" + p2 + " WINS !!!")
+            s.runAndWait()
+        break
+    elif data[0][1] == data[1][1] == data[2][1]:
+        if data[2][1] == "X":
+            print("Player 1 ",p1," WINS !!!")
+            s.say("Player 1 " + p1 + " WINS !!!")
+            s.runAndWait()
+        else:
+            print("Player 2 ",p2, " WINS !!!")
+            s.say("Player 2 0" + p2 + " WINS !!!")
+            s.runAndWait()
+        break
+    elif data[0][2] == data[1][2] == data[2][2]:
+        if data[2][2] == "X":
+            print("Player 1 ",p1," WINS !!!")
+            s.say("Player 1 " + p1 + " WINS !!!")
+            s.runAndWait()
+        else:
+            print("Player 2 ",p2, " WINS !!!")
+            s.say("Player 2 0" + p2 + " WINS !!!")
+            s.runAndWait()
+        break
+    elif data[0][0] == data[1][1] == data[2][2]:
+        if data[0][0] == "X":
+            print("Player 1 ",p1," WINS !!!")
+            s.say("Player 1 " + p1 + " WINS !!!")
+            s.runAndWait()
+        else:
+            print("Player 2 ",p2, " WINS !!!")
+            s.say("Player 2 0" + p2 + " WINS !!!")
+            s.runAndWait()
+        break
+    elif data[0][2] == data[1][1] == data[2][0]:
+        if data[2][0] == "X":
+            print("Player 1 ",p1," WINS !!!")
+            s.say("Player 1 " + p1 + " WINS !!!")
+            s.runAndWait()
+        else:
+            print("Player 2 ",p2, " WINS !!!")
+            s.say("Player 2 0" + p2 + " WINS !!!")
+            s.runAndWait()
+        break
+    elif turn > 9:
+        print("It is a draw")
+        break
